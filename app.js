@@ -13,10 +13,14 @@ app.listen(port,() => {
 app.set = ("view engine" , "ejs")
 app.set = ("views",path.join("./src/views"))
 
+
 //ROUTER
 const usersRouter = require (".src/router/userRouter")
+const mainRouter = require ("./src/router/mainRouter")
+
 
 //RUTAS
+app.use("/",mainRouter)
 app.use("/users",usersRouter)
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
